@@ -11,16 +11,16 @@ def index():
   '''
 
   #Getting popular news articles
-  business_articles = get_articles('business')
-  print(business_articles)
+  popular_articles = get_articles('popular')
+  print(popular_articles)
   title = 'Home - Welcome to The Most Amazing News Highlight Website'
-  return render_template('index.html',title = title,business_articles = business_articles)
+  return render_template('index.html',title=title,popular=popular_articles)
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
-
-    '''
-    View news page function that returns the news details page and its data
+@app.route('/article/<int:article_id>')
+def article(article_id):
 
     '''
-    return render_template('news.html',id= news_id)
+    View article page function that returns the article details page and its data
+
+    '''
+    return render_template('article.html',id= article_id)

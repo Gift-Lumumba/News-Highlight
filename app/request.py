@@ -27,16 +27,16 @@ def get_articles(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_article_url = base_url.format(category,api_key)
+    get_articles_url = base_url.format(category,api_key)
 
-    with urllib.request.urlopen(get_article_url) as url:
-        get_article_data = url.read()
-        get_article_response = json.loads(get_article_data)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
 
         article_results = None
 
-        if get_article_response['results']:
-            article_results_list = get_article_response['results']
+        if get_articles_response['results']:
+            article_results_list = get_articles_response['results']
             article_results = process_results(article_results_list)
 
 
@@ -50,9 +50,9 @@ def process_results(article_list):
         article_list: A list of dictionaries that contain article details
 
     Returns :
-        article_results: A list of article objects
+        article_articles: A list of article objects
     '''
-    article_results = []
+    article_articles = []
     for article_item in article_list:
         author = article_item.get('author')
         title = article_item.get('title')
@@ -63,6 +63,6 @@ def process_results(article_list):
 
         if url:
             article_object = Article(author,title,description,url,urlToImage,publishedAt)
-            article_results.append(article_object)
+            article_articles.append(article_object)
 
-    return article_results
+    return article_articles
