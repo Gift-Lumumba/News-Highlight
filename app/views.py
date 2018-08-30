@@ -11,7 +11,7 @@ def index():
   message = 'News Highlights'
   return render_template('index.html',message = message)
 
-@app.route('/news/<news_id>')
+@app.route('/news/<int:news_id>')
 def news(news_id):
 
     '''
