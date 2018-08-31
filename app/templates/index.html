@@ -9,11 +9,11 @@
         {% endif %}
     </head>
     <body>
-         <!-- Popular Article section  -->
-        <h3> Popular Articles </h3>
+         <!-- Top Headlines Article section  -->
+        <h3>Top Headlines Articles </h3>
          <ul>
-            {% for popular_article in popular %}
-                <li>{{ popular_article.title}}</li>
+            {% for sources_articles in cnn %}
+                <li>{{ sources_articles.title}}</li>
             {% endfor %}
         </ul>
 
