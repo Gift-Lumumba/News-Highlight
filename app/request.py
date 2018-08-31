@@ -61,6 +61,9 @@ def process_results(article_list):
     return article_results
 
 def get_article(id):
+    '''
+    Function that gets json response from url
+    '''
     get_article_details_url = base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_article_details_url) as url:

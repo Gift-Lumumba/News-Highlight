@@ -16,18 +16,19 @@
     
     {% block styles%}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
     {% endblock %}
-    
-    <!-- Content Block -->
-    {% block content %}
-    
-    <!-- Top Headlines Article section  -->
-    <h3>Top Headlines Articles </h3>
-    <ul>
-        {{ macro.displayArticleList(cnn)}}
+    <div class="container-fluid">
+        <!-- Content Block -->
+        {% block content %}
         
-    </ul>
+        <!-- Top Headlines Article section  -->
+        <h3>Top Headlines Articles </h3>
+        <ul>
+            {{ macro.displayArticleList(cnn)}}
+            
+        </ul>
+    </div>
     {% endblock %}
     
 </body>

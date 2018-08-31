@@ -1,13 +1,37 @@
 {% macro displayArticleList(article_list) %}
 
-    {% for article in article_list %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 article-card">
-        <img src="{{article.urlToImage}}" alt="" class="img-responsive">
-        <li class="text-center">
-            <a href="/article/{{article.id}}">
-                {{article.title}}</a>
-        </li>
+{% for article in article_list %}
+<div class="container fluid">
+  <div class="row">
+    <div class="col-md-6 article-card">
+       <img src="{{article.urlToImage}}" alt="" class="img-responsive">
     </div>
-    {% endfor %}
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6 article-details">
+      <h3 class="title"><b>{{ article.title }}</b></h3>
+      
+      <p class="author"> <b>Author:</b>{{ article.author }}</p>
+      <p class="description"> <b>Description:</b>{{ article.description }}<a href="{{article.url}}">Read more...</a></p>
+      <p class="publish"> <b>Date of Publish:</b>{{ article.publishedAt }}</p>
+      
+    </div>
+  </div>
+  
+</div>
+<style>
+  .article-details{
+    font-size: 17px;
+  }
+  .title{
+    font-size: 20px;
+    text-decoration-line: underline;
+  }
+</style>
+
+{% endfor %}
 
 {% endmacro %}
