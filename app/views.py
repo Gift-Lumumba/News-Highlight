@@ -10,11 +10,11 @@ def index():
   View root page function that returns the index page and its data
   '''
 
-  #Getting popular news articles
-  popular_articles = get_articles('popular')
-  print(popular_articles)
+  #Getting articles sources
+  sources_articles = get_articles('cnn')
+  print(sources_articles)
   title = 'Home - Welcome to The Most Amazing News Highlight Website'
-  return render_template('index.html',title=title,popular=popular_articles)
+  return render_template('index.html',title=title,cnn=sources_articles)
 
 @app.route('/article/<int:article_id>')
 def article(article_id):
