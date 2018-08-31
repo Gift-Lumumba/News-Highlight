@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
 <!DOCTYPE html>
@@ -11,13 +12,17 @@
     {% endif %}
 </head>
 <body>
+
+    <!-- Content Block -->
+    {% block content %}
+
     <!-- Top Headlines Article section  -->
     <h3>Top Headlines Articles </h3>
     <ul>
         {{ macro.displayArticleList(cnn)}}
 
     </ul>
-    
+    {% endblock %}
     
 </body>
 </html>
