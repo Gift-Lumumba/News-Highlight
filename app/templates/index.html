@@ -12,15 +12,21 @@
     {% endif %}
 </head>
 <body>
-
+    <!-- Styles Block -->
+    
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    {% endblock %}
+    
     <!-- Content Block -->
     {% block content %}
-
+    
     <!-- Top Headlines Article section  -->
     <h3>Top Headlines Articles </h3>
     <ul>
         {{ macro.displayArticleList(cnn)}}
-
+        
     </ul>
     {% endblock %}
     
