@@ -1,21 +1,23 @@
+{% import 'macros.html' as macro%}
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title>  Welcome to The Most Amazing News Highlight Website </title>
-        {% endif %}
-    </head>
-    <body>
-         <!-- Top Headlines Article section  -->
-        <h3>Top Headlines Articles </h3>
-         <ul>
-            {% for sources_articles in cnn %}
-                <li>{{ sources_articles.title}}</li>
-            {% endfor %}
-        </ul>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title>  Welcome to The Most Amazing News Highlight Website </title>
+    {% endif %}
+</head>
+<body>
+    <!-- Top Headlines Article section  -->
+    <h3>Top Headlines Articles </h3>
+    <ul>
+        {{ macro.displayArticleList(cnn)}}
 
-    </body>
+    </ul>
+    
+    
+</body>
 </html>
