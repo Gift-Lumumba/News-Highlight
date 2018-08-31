@@ -18,18 +18,30 @@
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
     {% endblock %}
-    <div class="container-fluid">
+    <div class="container">
         <!-- Content Block -->
         {% block content %}
         
         <!-- Top Headlines Article section  -->
-        <h3>Top Headlines Articles </h3>
+        <h3 class="top"><b>Top Headlines</b> </h3>
         <ul>
             {{ macro.displayArticleList(cnn)}}
             
         </ul>
+        <br>
+        <br>
     </div>
+    <style>
+        .top{
+            padding-left: 400px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Abril Fatface', cursive;
+        }
+    </style>
     {% endblock %}
+    
+    
     
 </body>
 </html>
