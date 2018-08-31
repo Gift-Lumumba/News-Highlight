@@ -60,3 +60,24 @@ def process_results(article_list):
 
     return article_results
 
+def get_article(id):
+    get_article_details_url = base_url.format(id,api_key)
+
+    with urllib.request.urlopen(get_article_details_url) as url:
+        article_details_data = url.read()
+        article_details_response = json.loads(article_details_data)
+
+        article_object = None
+        if article_details_response:
+            id = article_details_response.get('id')
+            author = article_details_response.get('author')
+            description = article_details_response.get('description')
+            url = article_details_response.get('url')
+            urlToImage = article_details_response.get('urlToImage')
+            publishedAt = article_details_response.get('publishedAt')
+
+            article_object = Article(id,author,description,url,urlToImage,publishedAt)
+
+    return article_object
+
+
