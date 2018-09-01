@@ -10,8 +10,8 @@ api_key = app.config['ARTICLE_API_KEY']
 #Getting the article source base url
 # base_url = app.config['SOURCES_API_BASE_URL']
 
-#Getting all articles base url
-# articles_url = app.config['EVERYTHING_API_BASE_URL']
+#Getting sports base url
+sports_url = app.config['SPORTS_API_BASE_URL']
 
 #Getting top-headline articles base url
 base_url = app.config['TOP_HEADLINES_API_BASE_URL']
@@ -82,5 +82,24 @@ def get_article(id):
             article_object = Article(id,author,description,url,urlToImage,publishedAt)
 
     return article_object
+
+def get_sports(country):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_sports_url = sports_url.format(country,api_key)
+
+    with urllib.request.urlopen(get_sports_url) as url:
+        get_sports_data = url.read()
+        get_sports_response = json.loads(get_sports_data)
+
+        sport_results = None
+
+        if get_sports_response['articles']:
+            sport_results_list = get_sports_response['articles']
+            sport_results = process_results(sport_results_list)
+
+
+    return sport_results
 
 
