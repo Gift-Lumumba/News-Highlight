@@ -23,27 +23,36 @@
         {% block content %}
         
         <!-- Top Headlines Article section  -->
-        <h3 class="top"><b>Top Headlines</b> </h3>
+        <div class="jumbotron">
+            <h3 class="top"> Top Headlines </h3>
+        </div>
         <ul>
             {{ macro.displayArticleList(cnn)}}
             
         </ul>
         <!-- Sports Articles Section -->
-        <h3> Sports Articles </h3>
+        <div class="jumbotron">
+            <h3 class="sports"> Sports Articles </h3>
+        </div>
+        
         <ul>
-                {% for sports_article in us %}
-                <li>{{ sports_article.title}}</li>
-            {% endfor %}
+            {{ macro.displayArticleList(us)}}
         </ul>
         <br>
         <br>
     </div>
     <style>
         .top{
-            padding-left: 400px;
+            padding-left: 550px;
             font-size: 35px;
             color: black;
-            font-family: 'Abril Fatface', cursive;
+            font-family: 'Nunito', sans-serif;
+        }
+        .sports{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
         }
     </style>
     {% endblock %}
