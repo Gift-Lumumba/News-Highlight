@@ -28,6 +28,13 @@
             {{ macro.displayArticleList(cnn)}}
             
         </ul>
+        <!-- Sports Articles Section -->
+        <h3> Sports Articles </h3>
+        <ul>
+                {% for sports_article in us %}
+                <li>{{ sports_article.title}}</li>
+            {% endfor %}
+        </ul>
         <br>
         <br>
     </div>
