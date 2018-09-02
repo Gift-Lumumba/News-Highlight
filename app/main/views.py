@@ -1,9 +1,9 @@
-from flask import render_template
-from app import app
-from  app.request import get_articles,get_article,get_sports,get_business,get_technology,get_entertainment,get_health,get_science,get_sources
+from flask import render_template,request,redirect,url_for
+from . import main
+from  ..request import get_articles,get_article,get_sports,get_business,get_technology,get_entertainment,get_health,get_science,get_source,get_sources
 
 #Views
-@app.route('/')
+@main.route('/')
 def index():
 
   '''
@@ -28,7 +28,7 @@ def index():
   title = 'Home - Welcome to The Most Amazing News Highlight Website'
   return render_template('index.html',title=title,cnn=topheadline_articles,us=sports_articles,gb=business_articles,techcrunch=technology_articles,entertainment_weekly=entertainment_articles,google_news=health_articles,new_scientist=science_articles)
 
-@app.route('/article/<int:id>')
+@main.route('/article/<int:id>')
 def article(id):
 
     '''
@@ -40,3 +40,16 @@ def article(id):
     title = f'{article.title}'
 
     return render_template('article.html',title = title ,article = article)
+
+@main.route('/source/<int:id>')
+def source(id):
+
+    '''
+    View source page function that returns the source details page and its data
+
+    '''
+
+    source = get_source(id)
+    name = f'{source.name}'
+
+    return render_template('source.html',name = name ,source = source)

@@ -1,3 +1,5 @@
+import os
+
 class Config:
     '''
     General configuration parent class
@@ -12,6 +14,10 @@ class Config:
     ENTERTAINMENT_API_BASE_URL = 'https://newsapi.org/v2/everything?q=entertainment&sources={}&language=en&apiKey={}'
     HEALTH_API_BASE_URL = 'https://newsapi.org/v2/everything?q=health&sources={}&language=en&apiKey={}'
     SCIENCE_API_BASE_URL = 'https://newsapi.org/v2/everything?q=science&sources={}&language=en&apiKey={}'
+
+
+    ARTICLE_API_KEY = os.environ.get('ARTICLE_API_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
    
 
 
@@ -35,3 +41,8 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+}

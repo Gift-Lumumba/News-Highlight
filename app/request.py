@@ -1,36 +1,30 @@
-from app import app
 import urllib.request,json
-from app.models import source,article
+from .models import Source,Article
 
-Source = source.Source
-Article = article.Article
+# Source = source.Source
+# Article = article.Article
 
 # Getting api key
-api_key = app.config['ARTICLE_API_KEY']
+api_key = None
+base_url = None
+business_url = None
+sports_url = None
+headlines_url = None
+technology_url = None
+entertainment_url = None
+health_url = None
+science_url = None
 
-#Getting source base url
-base_url = app.config['SOURCE_API_BASE_URL']
-
-#Getting sports base url
-sports_url = app.config['SPORTS_API_BASE_URL']
-
-# #Getting top-headline articles base url
-headlines_url = app.config['TOP_HEADLINES_API_BASE_URL']
-
-#Getting business base url
-business_url = app.config['BUSINESS_API_BASE_URL']
-
-#Getting tech base url
-technology_url = app.config['TECH_API_BASE_URL']
-
-#Getting entertainment base url
-entertainment_url = app.config['ENTERTAINMENT_API_BASE_URL']
-
-#Getting health base url
-health_url = app.config['HEALTH_API_BASE_URL']
-
-#Getting science base url
-science_url = app.config['SCIENCE_API_BASE_URL']
+def configure_request(app):
+    global api_key,base_url,sports_url,headlines_url,technology_url,entertainment_url,health_url,science_url
+    api_key = app.config['ARTICLE_API_KEY']
+    base_url = app.config['SOURCE_API_BASE_URL']
+    sports_url = app.config['SPORTS_API_BASE_URL']
+    headlines_url = app.config['TOP_HEADLINES_API_BASE_URL']
+    technology_url = app.config['TECH_API_BASE_URL']
+    entertainment_url = app.config['ENTERTAINMENT_API_BASE_URL']
+    health_url = app.config['HEALTH_API_BASE_URL']
+    science_url = app.config['SCIENCE_API_BASE_URL']
 
 
 def get_sources(category):
