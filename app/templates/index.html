@@ -19,8 +19,13 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
     {% endblock %}
     
-    <!-- Content block -->
-    {% block content %} 
+     <!-- Article sources section  -->
+     <h3> Article Sources</h3>
+     <ul>
+        {{ macro.displaySourceList(general)}}
+    </ul>
+   
+    <!-- {% block content %} 
     <div class="jumbotron">
         <h3 class="top"> Top Headlines </h3>
     </div>
@@ -30,7 +35,7 @@
     </ul>
     <br>
     <br>
-    {% endblock %}
+    {% endblock %} -->
     
     
 </body>
