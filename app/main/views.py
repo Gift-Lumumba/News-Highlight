@@ -41,7 +41,7 @@ def article(id):
 
     return render_template('article.html',title = title ,article = article)
 
-@main.route('/source/<int:id>')
+@main.route('/source/<id>')
 def source(id):
 
     '''

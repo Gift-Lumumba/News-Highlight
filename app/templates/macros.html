@@ -36,15 +36,11 @@
   <div class="col-sm article-details">
     <div class="card" style="width: 720px;">
       <div class="card-body">
-          <h5 class="name"><b>{{source.name}}</b></h5>
-        <p class="author"><b>Description:</b> {{source.description}}</p>
-        <a href="{{source.url}}" target="blank_" class="btn btn-primary button">Read more...</a>
+          <p class="name"><b>{{source.name}}</b></p>
+        <h3 style="font-size: 16px"><b>Description:</b> {{source.description}}</p>
+        <a href="{{source.url}}" target="blank_" class="btn btn-primary button ">More Info...</a>
         <br>
         <br>
-        <p class="category"><b>Category</b> {{source.category}}</p>
-        <div class="card-footer">
-          <small class="id">{{source.id}}</small>
-        </div>
       </div>
     </div>
   </div>
@@ -58,6 +54,7 @@
     color: black;
     font-family: 'Nunito', sans-serif;
   }
+
   body{
     background-color: #f2f2f2;
     background-attachment: fixed;

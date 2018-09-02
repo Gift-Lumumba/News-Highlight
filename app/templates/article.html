@@ -1,12 +1,38 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
 <!-- Content block -->
 {% block content %}
 
 <div class="container">
-    {{macro.displayArticles(article)}}
-</div>
+    <div class="jumbotron">
+        <h3> News Articles</h3>
+        <h2>The The Latest News from {{name_source}}</h2>
+    </div>
+            <div class="col-sm article-details">
+              <div class="card" style="width: 720px;">
+                <img class="image" src="{{article.urlToImage}}" alt="">
+                <div class="card-body">
+                  <div class="card-header">
+                    <h5 class="title"><b>{{article.title}}</b></h5>
+                  </div>
+                  <p class="author"><b>Description:</b> {{article.description}}</p>
+                  <a href="{{article.url}}" target="blank_" class="btn btn-primary button">Read more...</a>
+                  <br>
+                  <br>
+                  <p class="author"><b>Date of Publish:</b> {{article.publishedAt}}</p>
+                  <div class="card-footer">
+                    <small class="text-muted">{{article.author}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
 
 
 {% endblock %}
