@@ -1,20 +1,21 @@
 from app import app
 import urllib.request,json
-from app.models import article
+from app.models import article,source
 
 Article = article.Article
+Source = source.Source
 
 # Getting api key
 api_key = app.config['ARTICLE_API_KEY']
 
-#Getting the article source base url
-# base_url = app.config['SOURCES_API_BASE_URL']
+#Getting source base url
+base_url = app.config['SOURCE_API_BASE_URL']
 
 #Getting sports base url
 sports_url = app.config['SPORTS_API_BASE_URL']
 
-#Getting top-headline articles base url
-base_url = app.config['TOP_HEADLINES_API_BASE_URL']
+# #Getting top-headline articles base url
+# base_url = app.config['TOP_HEADLINES_API_BASE_URL']
 
 #Getting business base url
 business_url = app.config['BUSINESS_API_BASE_URL']
@@ -212,5 +213,26 @@ def get_science(sources):
 
 
     return science_results
+
+def get_sources(category):
+    '''
+    Function that gets the json response to our url request
+    Takes news article category as an argument
+    '''
+    get_sources_url = base_url.format(category,api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+
+        source_results = None
+
+        if get_sources_response['sources']:
+            source_results_list = get_sources_response['sources']
+            source_results = process_results(source_results_list)
+
+
+    return source_results
+
 
 

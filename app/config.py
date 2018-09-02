@@ -4,6 +4,7 @@ class Config:
     '''
     # SOURCES_API_BASE_URL = 'https://newsapi.org/v2/sources?category={}&language=en&apiKey={}'
     # EVERYTHING_API_BASE_URL ='https://newsapi.org/v2/everything?sources={}&language=en&apiKey={}'
+    SOURCE_API_BASE_URL = 'https://newsapi.org/v2/sources?category={}&language=en&apiKey={}'
     TOP_HEADLINES_API_BASE_URL ='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
     SPORTS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?category=sports&country={}&apiKey={}'
     BUSINESS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?category=business&country={}&apiKey={}'
