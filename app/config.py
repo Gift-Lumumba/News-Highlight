@@ -6,6 +6,11 @@ class Config:
     # EVERYTHING_API_BASE_URL ='https://newsapi.org/v2/everything?sources={}&language=en&apiKey={}'
     TOP_HEADLINES_API_BASE_URL ='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
     SPORTS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?category=sports&country={}&apiKey={}'
+    BUSINESS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?category=business&country={}&apiKey={}'
+    TECH_API_BASE_URL = 'https://newsapi.org/v2/everything?q=technology&sources={}&language=en&apiKey={}'
+    ENTERTAINMENT_API_BASE_URL = 'https://newsapi.org/v2/everything?q=entertainment&sources={}&language=en&apiKey={}'
+    HEALTH_API_BASE_URL = 'https://newsapi.org/v2/everything?q=health&sources={}&language=en&apiKey={}'
+    SCIENCE_API_BASE_URL = 'https://newsapi.org/v2/everything?q=science&sources={}&language=en&apiKey={}'
    
 
 

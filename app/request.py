@@ -16,6 +16,21 @@ sports_url = app.config['SPORTS_API_BASE_URL']
 #Getting top-headline articles base url
 base_url = app.config['TOP_HEADLINES_API_BASE_URL']
 
+#Getting business base url
+business_url = app.config['BUSINESS_API_BASE_URL']
+
+#Getting tech base url
+technology_url = app.config['TECH_API_BASE_URL']
+
+#Getting entertainment base url
+entertainment_url = app.config['ENTERTAINMENT_API_BASE_URL']
+
+#Getting health base url
+health_url = app.config['HEALTH_API_BASE_URL']
+
+#Getting science base url
+science_url = app.config['SCIENCE_API_BASE_URL']
+
 def get_articles(sources):
     '''
     Function that gets the json response to our url request
@@ -101,5 +116,101 @@ def get_sports(country):
 
 
     return sport_results
+
+
+def get_business(country):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_business_url = business_url.format(country,api_key)
+
+    with urllib.request.urlopen(get_business_url) as url:
+        get_business_data = url.read()
+        get_business_response = json.loads(get_business_data)
+
+        business_results = None
+
+        if get_business_response['articles']:
+            business_results_list = get_business_response['articles']
+            business_results = process_results(business_results_list)
+
+
+    return business_results
+
+def get_technology(sources):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_technology_url = technology_url.format(sources,api_key)
+
+    with urllib.request.urlopen(get_technology_url) as url:
+        get_technology_data = url.read()
+        get_technology_response = json.loads(get_technology_data)
+
+        technology_results = None
+
+        if get_technology_response['articles']:
+            technology_results_list = get_technology_response['articles']
+            technology_results = process_results(technology_results_list)
+
+
+    return technology_results
+
+def get_entertainment(sources):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_entertainment_url = entertainment_url.format(sources,api_key)
+
+    with urllib.request.urlopen(get_entertainment_url) as url:
+        get_entertainment_data = url.read()
+        get_entertainment_response = json.loads(get_entertainment_data)
+
+        entertainment_results = None
+
+        if get_entertainment_response['articles']:
+            entertainment_results_list = get_entertainment_response['articles']
+            entertainment_results = process_results(entertainment_results_list)
+
+
+    return entertainment_results
+
+def get_health(sources):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_health_url = health_url.format(sources,api_key)
+
+    with urllib.request.urlopen(get_health_url) as url:
+        get_health_data = url.read()
+        get_health_response = json.loads(get_health_data)
+
+        health_results = None
+
+        if get_health_response['articles']:
+            health_results_list = get_health_response['articles']
+            health_results = process_results(health_results_list)
+
+
+    return health_results
+
+def get_science(sources):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_science_url = science_url.format(sources,api_key)
+
+    with urllib.request.urlopen(get_science_url) as url:
+        get_science_data = url.read()
+        get_science_response = json.loads(get_science_data)
+
+        science_results = None
+
+        if get_science_response['articles']:
+            science_results_list = get_science_response['articles']
+            science_results = process_results(science_results_list)
+
+
+    return science_results
 
 

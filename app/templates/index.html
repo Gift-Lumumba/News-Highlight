@@ -18,45 +18,19 @@
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
     {% endblock %}
-    <div class="container">
-        <!-- Content Block -->
-        {% block content %}
-        
-        <!-- Top Headlines Article section  -->
-        <div class="jumbotron">
-            <h3 class="top"> Top Headlines </h3>
-        </div>
-        <ul>
-            {{ macro.displayArticleList(cnn)}}
-            
-        </ul>
-        <!-- Sports Articles Section -->
-        <div class="jumbotron">
-            <h3 class="sports"> Sports Articles </h3>
-        </div>
-        
-        <ul>
-            {{ macro.displayArticleList(us)}}
-        </ul>
-        <br>
-        <br>
-    </div>
-    <style>
-        .top{
-            padding-left: 550px;
-            font-size: 35px;
-            color: black;
-            font-family: 'Nunito', sans-serif;
-        }
-        .sports{
-            padding-left: 550px;
-            font-size: 35px;
-            color: black;
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-    {% endblock %}
     
+    <!-- Content block -->
+    {% block content %} 
+    <div class="jumbotron">
+        <h3 class="top"> Top Headlines </h3>
+    </div>
+    
+    <ul>
+        {{ macro.displayArticleList(cnn)}}
+    </ul>
+    <br>
+    <br>
+    {% endblock %}
     
     
 </body>

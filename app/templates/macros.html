@@ -8,7 +8,9 @@
     <div class="card" style="width: 720px;">
       <img class="image" src="{{article.urlToImage}}" alt="">
       <div class="card-body">
-        <h5 class="title"><b>{{article.title}}</b></h5>
+        <div class="card-header">
+          <h5 class="title"><b>{{article.title}}</b></h5>
+        </div>
         <p class="author"><b>Description:</b> {{article.description}}</p>
         <a href="{{article.url}}" target="blank_" class="btn btn-primary button">Read more...</a>
         <br>
@@ -20,14 +22,15 @@
       </div>
     </div>
   </div>
-  {% macro displayArticleList(article_list) %}
+</div>
+{% macro displayArticleList(article_list) %}
 
-    {% for article in article_list %}
-        <li>{{ article.title}}</li>
-    {% endfor %}
+{% for article in article_list %}
+<li>{{ article.title}}</li>
+{% endfor %}
 
 {% endmacro %}
-  
+
 </div>
 <style>
   .article-details{
@@ -45,29 +48,29 @@
     font-family: 'Nunito', sans-serif;
   }
   .card {
-  width: 720px !important;
-  margin-bottom: 30px;
-  border-radius: 5px !important;
-  border: 0 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-}
-.card-body {
-  border: 0 !important;
-}
-.card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transform: translateY(-7px);
-}
-.card a {
-  color: #111517;
-  text-decoration: none;
-}
-.button{
-  font-size: 15px;
-}
-
+    width: 720px !important;
+    margin-bottom: 30px;
+    border-radius: 5px !important;
+    border: 0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+  }
+  .card-body {
+    border: 0 !important;
+  }
+  .card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: translateY(-7px);
+  }
+  .card a {
+    color: #111517;
+    text-decoration: none;
+  }
+  .button{
+    font-size: 15px;
+  }
+  
 </style>
 
 {% endfor %}

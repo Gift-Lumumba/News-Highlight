@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+
+<!-- Content block -->
+{% block content %} 
+ <div class="jumbotron">
+    <h3 class="technology"> Technology Articles </h3>
+</div>
+
+<ul>
+    {{ macro.displayArticleList(techcrunch)}}
+</ul>
+<br>
+<br>
+{% endblock %}
+
+<!-- <style>
+        .top{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .sports{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .business{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .technology{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .entertainment{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .health{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+        .science{
+            padding-left: 550px;
+            font-size: 35px;
+            color: black;
+            font-family: 'Nunito', sans-serif;
+        }
+    </style> -->
