@@ -1,31 +1,56 @@
-<div class="container">
+<!-- <div class="container">
     <br>
     <div class="row">
       <nav class="navbar navbar-black bg-black">
         <a class="navbar-brand" href="#"></a>
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#">Home</button>
+          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="/">Home</button>
           &nbsp; &nbsp;
           
-          <button class="btn btn-md btn-outline-success" type="button" id="categories" href="#">Business</button>
+          <button class="btn btn-md btn-outline-success" type="button" id="categories" href="#business">Business</button>
           &nbsp; &nbsp;
           
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#">Sports</button>
+          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#sports">Sports</button>
           &nbsp; &nbsp;
           
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="/{{''}}">Technology</button>
+          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#technology">Technology</button>
           &nbsp; &nbsp;
 
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="">Entertainment</button>
+          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#entertainment">Entertainment</button>
           &nbsp; &nbsp;
 
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#">Health</button>
-          &nbsp; &nbsp;
-
-          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#">Science</button>
+          <button class="btn btn-md btn-outline-success" type="button"  id="categories" href="#health">Health</button>
           &nbsp; &nbsp;
           
 </div>
 </div>
+<div class="navbar-content">
+    <div id="business">
+        <ul>
+            {{ macro.displaySources(business)}}
+        </ul>
+    </div>
+    <div id="technology">
+        <ul>
+            {{ macro.displaySources(technology)}}
+        </ul>
+    </div>
+    <div id="entertainment">
+        <ul>
+            {{ macro.displaySources(entertainment)}}
+        </ul>
+    </div>
+    <div id="sport">
+        <ul>
+            {{ macro.displaySources(sport)}}
+        </ul>
+    </div>
+    <div id="health">
+        <ul>
+            {{ macro.displaySources(health)}}
+        </ul>
+    </div>
+</div>
+</div> -->
 
 <style>
   .business{

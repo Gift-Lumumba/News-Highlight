@@ -1,60 +1,27 @@
-{% macro displayArticleList(article_list) %}
 
-{% for article in article_list %}
+{% macro displaySources(sources_list)%}
+{% for sources in sources_list %}
 <div class="container">
-  <br>
-  <br>
-  <div class="col-sm article-details">
-    <div class="card" style="width: 720px;">
-      <img class="image" src="{{article.urlToImage}}" alt="">
-      <div class="card-body">
-        <div class="card-header">
-          <h5 class="title"><b>{{article.title}}</b></h5>
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <div class="articles">
+                <p style="font-weight:bold">{{sources.name}}</p>
+                <p>{{sources.description | truncate(50)}}</p>
+                <a href="/article/{{sources.id}}">See more...</a>
+            </div>
         </div>
-        <p class="author"><b>Description:</b> {{article.description}}</p>
-        <a href="{{article.url}}" target="blank_" class="btn btn-primary button">Read more...</a>
-        <br>
-        <br>
-        <p class="author"><b>Date of Publish:</b> {{article.publishedAt}}</p>
-        <div class="card-footer">
-          <small class="text-muted">{{article.author}}</small>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
+
 {% endfor %}
 
-{% endmacro %}
-
-{% macro displaySourceList(source_list) %}
-
-{% for source in source_list %}
-<div class="container">
-  <br>
-  <br>
-  <div class="col-sm article-details">
-    <div class="card" style="width: 720px;">
-      <div class="card-body">
-          <p class="name"><b>{{source.name}}</b></p>
-        <h3 style="font-size: 16px"><b>Description:</b> {{source.description}}</p>
-        <a href="{{source.url}}" target="blank_" class="btn btn-primary button ">More Info...</a>
-        <br>
-        <br>
-      </div>
-    </div>
-  </div>
-</div>
-{% endfor %}
-
-{% endmacro %}
-<style>
+{%endmacro%}
+<!-- <style>
   .article-details{
     font-size: 18px;
     color: black;
     font-family: 'Nunito', sans-serif;
   }
-
   body{
     background-color: #f2f2f2;
     background-attachment: fixed;
@@ -88,4 +55,4 @@
     font-size: 15px;
   }
   
-</style>
+</style> -->

@@ -1,50 +1,73 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title>  Welcome to The Most Amazing News Highlight Website </title>
+    <title> Get breaking news headlines, and search for articles from over 30,000 news sources and blogs </title>
     {% endif %}
 </head>
+
 <body>
-    <!-- Styles Block -->
-    
-    {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-    {% endblock %}
-    
+
+    <!-- Content block -->
     {% block content %}
-     <!-- Article sources section  -->
-     <h3> Article Sources</h3>
-     <ul>
-        {{ macro.displaySourceList(general)}}
-    </ul>
-    {% endblock%}
-<!-- <style>
-    body{
-        background-color: red;
-    }
-</style> -->
-</body>
-</html>
-   
-  
-    <!-- <div class="jumbotron">
-        <h3 class="top"> Top Headlines </h3>
+    <div class="container-fluid">   
+
+        <h3 style="color:#0f0f7a;">Top News Stories</h3>
+        <hr>
+        {% for info_article in cnn %}
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <div class="topnews">
+                    <img src={{info_article.urlToImage}} style="width:273px;height:158px">
+                    <p>{{info_article.title | truncate(50)}}</p>
+                    <a href={{info_article.url}}>Read full story</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    
-    <ul>
-        {{ macro.displayArticleList(cnn)}}
-    </ul>
-    <br>
-    <br>
-    
-    
+    <hr>
+       <div class="container-fluid">
+    <h2 style="color:#0f0f7a;">News by category</h2>
+    <hr>
+    <center>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#business">Business news</a></li>
+            <li><a data-toggle="tab" href="#technology">Technology news</a></li>
+            <li><a data-toggle="tab" href="#entertainment">Entertainment news</a></li>
+            <li><a data-toggle="tab" href="#sports">Sports news</a></li>
+        </ul>
+    </center>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="business">
+            <ul>
+                {{ macro.displaySources(business)}}
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="technology">
+            <ul>
+                {{ macro.displaySources(technology)}}
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="entertainment">
+            <ul>
+                {{ macro.displaySources(entertainment)}}
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="sports">
+            <ul>
+                {{ macro.displaySources(sports)}}
+            </ul>
+        </div>
+    </div>
+    </div>
+    {% endblock%}
+
 </body>
 </html>
