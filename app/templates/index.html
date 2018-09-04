@@ -8,65 +8,142 @@
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> Get breaking news headlines, and search for articles from over 30,000 news sources and blogs </title>
+    <title> Welcome To The Best News Article Website </title>
     {% endif %}
 </head>
 
 <body>
+    <!-- Styles block -->
 
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+    
     <!-- Content block -->
     {% block content %}
-    <div class="container-fluid">   
-
-        <h3 style="color:#0f0f7a;">Top News Stories</h3>
-        <hr>
-        {% for info_article in cnn %}
-        <div class="col-md-2">
-            <div class="thumbnail">
-                <div class="topnews">
-                    <img src={{info_article.urlToImage}} style="width:273px;height:158px">
-                    <p>{{info_article.title | truncate(50)}}</p>
-                    <a href={{info_article.url}}>Read full story</a>
+    <div class="container-fluid">  
+            <div class="jumbotron">
+                    <h1 class="head">News Sasa</h1>
+                </div> 
+            <hr>
+            <div class="row nav">
+                <nav class="navbar navbar-black bg-black">
+                    <a class="navbar-brand" href="#"></a>
+                    <a class="btn btn-success btn-md" data-toggle="collapse" href="/" role="button" aria-expanded="false" aria-controls="collapseExample">Home</a>
+                    &nbsp; &nbsp;
+                    
+                    <a class="btn btn-success btn-md" data-toggle="collapse" href="#business" role="button" aria-expanded="false" aria-controls="collapseExample">Business</a>
+                    &nbsp; &nbsp;
+                    
+                    <a class="btn btn-success btn-md" data-toggle="collapse" href="#technology" role="button" aria-expanded="false" aria-controls="collapseExample">Technology</a>
+                    &nbsp; &nbsp;
+                    
+                    <a class="btn btn-success btn-md" data-toggle="collapse" href="#entertainment" role="button" aria-expanded="false" aria-controls="collapseExample">Entertainment</a>
+                    &nbsp; &nbsp;
+                    
+                    <a class="btn btn-success btn-md" data-toggle="collapse" href="#sports" role="button" aria-expanded="false" aria-controls="collapseExample">Sports</a>
+                    &nbsp; &nbsp;
+                </nav>
+                
+            </div>
+            <div class="navbar-content">
+                <div id="business" class="collapse">
+                    <ul>
+                        {{ macro.displaySources(business)}}
+                    </ul>
+                </div>
+                <div id="technology" class="collapse">
+                    <ul>
+                        {{ macro.displaySources(technology)}}
+                    </ul>
+                </div>
+                <div id="entertainment" class="collapse">
+                    <ul>
+                        {{ macro.displaySources(entertainment)}}
+                    </ul>
+                </div>
+                <div id="sports" class="collapse">
+                    <ul>
+                        {{ macro.displaySources(sports)}}
+                    </ul>
                 </div>
             </div>
+        <hr>
+        <div class="container-fluid">
+            <!-- Content Body -->
+            <div class="row">
+                {% for info_article in cnn %}
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href={{info_article.url}} target="blank_"></a>
+                        <img class="card-img-top" src={{info_article.urlToImage}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="title"><b>{{info_article.title}}</b></h5>
+                            <p class="description"><b>Description:</b>{{info_article.description}}</p>
+                            <p class="date">{{info_article.publishedAt}}</p>
+                            <div class="card-footer">
+                                <p class="author">{{info_article.author}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                {% endfor %}  
+            </div>
+            
         </div>
-        {% endfor %}
+        
     </div>
     <hr>
-       <div class="container-fluid">
-    <h2 style="color:#0f0f7a;">News by category</h2>
-    <hr>
-    <center>
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#business">Business news</a></li>
-            <li><a data-toggle="tab" href="#technology">Technology news</a></li>
-            <li><a data-toggle="tab" href="#entertainment">Entertainment news</a></li>
-            <li><a data-toggle="tab" href="#sports">Sports news</a></li>
-        </ul>
-    </center>
-    <div class="tab-content">
-        <div class="tab-pane fade in active" id="business">
-            <ul>
-                {{ macro.displaySources(business)}}
-            </ul>
-        </div>
-        <div class="tab-pane fade" id="technology">
-            <ul>
-                {{ macro.displaySources(technology)}}
-            </ul>
-        </div>
-        <div class="tab-pane fade" id="entertainment">
-            <ul>
-                {{ macro.displaySources(entertainment)}}
-            </ul>
-        </div>
-        <div class="tab-pane fade" id="sports">
-            <ul>
-                {{ macro.displaySources(sports)}}
-            </ul>
-        </div>
-    </div>
-    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito');
+        .nav{
+            background:  rgb(14, 11, 11);
+            padding-top: 30px;
+            
+        }
+        .jumbotron{
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+        }
+        .head{
+            font-family: 'Nunito', sans-serif;
+            font-size: 28px;
+        }
+        .title{
+         font-size: 17px;
+         text-decoration-line: underline;
+         color: black;
+         font-family: 'Nunito', sans-serif;
+        }
+        .description{
+        font-size: 15px;
+        font-family: 'Nunito', sans-serif;
+        }
+        .date{
+            font-family: 'Nunito', sans-serif;
+        }
+        .author{
+            font-family: 'Nunito', sans-serif;
+        }
+        body{
+        background-color: #f2f2f2;
+    }
+        .thumbnail {
+        width: 465px !important;
+        margin-bottom: 30px;
+        border-radius: 5px !important;
+        border: 0 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+      }
+      .thumbnail:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        transform: translateY(-7px);
+      }
+    </style>
     {% endblock%}
 
 </body>

@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
+from .main import main as main_blueprint
+
 
 bootstrap = Bootstrap()
 

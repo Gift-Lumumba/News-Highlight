@@ -9,42 +9,41 @@ api_key = None
 
 #Getting base url
 base_url = None
-headlines_url = None
+sources_url = None
 articles_url = None
 
 def configure_request(app):
-    global api_key,base_url,headlines_url,articles_url
+    global api_key,base_url,sources_url,articles_url
     api_key = app.config['ARTICLE_API_KEY']
-    base_url = app.config['SOURCE_API_BASE_URL']
-    headlines_url = app.config['TOP_HEADLINES_API_BASE_URL']
-    articles_url = app.config['ARTICLES_API_BASE_URL']
+    base_url = app.config["TOP_HEADLINES_API_BASE_URL"]
+    sources_url = app.config["SOURCE_API_BASE_URL"]
+    articles_url = app.config["ARTICLES_API_BASE_URL"]
+
 
 
 def get_headlines(source):
-    '''
+    """
     Function that gets the json response to our url request
-    Takes news source as an argument
-    '''
-    get_headlines_url = headlines_url.format(source,api_key)
+    """
+    get_headlines_url = base_url.format(source,api_key)
 
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
         get_headlines_response = json.loads(get_headlines_data)
-
+        print(get_headlines_response)
         headlines_results = None
 
         if get_headlines_response['articles']:
             headlines_results_list = get_headlines_response['articles']
-            headlines_results = process_headlines(headlines_results_list)
-
+            headlines_results = process_results(headlines_results_list)
 
     return headlines_results
 
-def process_headlines(headlines_list):
+def process_results(headlines_list):
     '''
     Function  that processes the headlines result and transform them to a list of Objects
     Args:
-        headlines_list: A list of dictionaries that contain source details
+        headlines_list: A list of dictionaries that contain headlines details
     Returns :
         headlines_results: A list of headlines objects
     '''
@@ -53,18 +52,18 @@ def process_headlines(headlines_list):
         author = headlines_item.get('author')
         title = headlines_item.get('title')
         description = headlines_item.get('description')
-        url = headlines_item.get('url')
         urlToImage = headlines_item.get('urlToImage')
+        url = headlines_item.get('url')
         publishedAt = headlines_item.get('publishedAt')
 
         if urlToImage:
-            headlines_object = Headlines(author,title,description,url,urlToImage,publishedAt)
+            headlines_object = Headlines(author,title,description,urlToImage,url,publishedAt)
             headlines_results.append(headlines_object)
 
     return headlines_results
 
 def get_sources(category):
-    get_sources_url = base_url.format(category,api_key)
+    get_sources_url = sources_url.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()

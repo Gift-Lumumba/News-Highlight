@@ -1,21 +1,39 @@
-
-{% macro displaySources(sources_list)%}
-{% for sources in sources_list %}
-<div class="container">
-    <div class="col-md-3">
-        <div class="thumbnail">
-            <div class="articles">
-                <p style="font-weight:bold">{{sources.name}}</p>
-                <p>{{sources.description | truncate(50)}}</p>
-                <a href="/article/{{sources.id}}">See more...</a>
-            </div>
+<!DOCTYPE html>
+<html>
+<body>
+    {% macro displaySources(sources_list)%}
+    {% for sources in sources_list %}
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+              <div class="well">
+                  <div class="articles">
+                      <p style="font-weight:bold" class="name">{{sources.name}}</p>
+                      <p class="description">{{sources.description | truncate(200)}}</p>
+                      <div class="card-footer">
+                          <a href="/article/{{sources.id}}" class="btn btn-info">See more articles...</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
-</div>
-
-{% endfor %}
-
-{%endmacro%}
+    
+    {% endfor %}
+    <style>
+          @import url('https://fonts.googleapis.com/css?family=Nunito');
+      .name{
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px ;
+      }
+      .description{
+        font-family: 'Nunito', sans-serif;
+      }
+    </style>
+    
+    {%endmacro%}
+</body>
+</html>
 <!-- <style>
   .article-details{
     font-size: 18px;
@@ -31,7 +49,7 @@
     text-decoration-line: underline;
     font-family: 'Nunito', sans-serif;
   }
-  .card {
+  .thumbnail {
     width: 720px !important;
     margin-bottom: 30px;
     border-radius: 5px !important;
@@ -43,7 +61,7 @@
   .card-body {
     border: 0 !important;
   }
-  .card:hover {
+  .thumbnail:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     transform: translateY(-7px);
   }

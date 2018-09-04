@@ -4,42 +4,73 @@
 <html>
 
 <body>
-    <!-- Content block -->
-    {% block content %}
-    {% for info_article in info %}
-    <div class="content">
-            <div class="content-head">
-              <h3>Technology News</h3>
-              <p>Up-to-date Technology News coverage.</p>
-            </div>
-          
-            <!-- Content Body -->
-            <div class="content-body">
-              <div class="row">
-          
-                <div class="col-sm-4">
-                  <div class="card">
-                    <a href={{info_article.url}} target="blank_">
-                      <img class="card-img-top" src={{info_article.urlToImage}} alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title text">{{info_article.title}}</h5>
-                        <p class="date text-left">{{info_article.description}}</p>
-                        <p class="date text-left">{{info_article.publishedAt}}</p>
-                        <div class="card-footer">
-                          <small class="text-muted">{{info_article.author}}</small>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
+  <!-- Content block -->
+  {% block content %}
+  <br>
+  <br>
+  <br>
+  <div class="container-fluid">
+    <!-- Content Body -->
+    <div class="row">
+      {% for info_article in info %}
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href={{info_article.url}} target="blank_"></a>
+          <img class="card-img-top" src={{info_article.urlToImage}} alt="Card image cap">
+          <div class="card-body">
+            <h5 class="title"><p class="title"><b>{{info_article.title}}</b></p></h5>
+            <p class="date text-left"><p class="description"><b>Description:</b> {{info_article.description}}</p></p>
+            <p class="date text-left date">{{info_article.publishedAt}}</p>
+            <div class="card-footer">
+              <p class="author">{{info_article.author}}</p>
             </div>
           </div>
-
-
-    {% endfor %}
-
-    {% endblock%}
+        </div>
+        
+      </div>
+      {% endfor %}  
+    </div>
+    
+  </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    .title{
+      font-size: 17px;
+      text-decoration-line: underline;
+      color: black;
+      font-family: 'Nunito', sans-serif;
+    }
+    .description{
+      font-family: 'Nunito', sans-serif;
+    }
+    .date{
+      font-family: 'Nunito', sans-serif;
+    }
+    .author{
+      font-family: 'Nunito', sans-serif;
+    }
+    body{
+      background-color: #f2f2f2;
+    }
+    .thumbnail {
+      width: 465px !important;
+      margin-bottom: 30px;
+      border-radius: 5px !important;
+      border: 0 !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+    }
+    .thumbnail:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      transform: translateY(-7px);
+    }
+  </style>
+  
+  
+  
+  {% endblock%}
 </body>
+
 
 </html>

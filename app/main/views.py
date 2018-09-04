@@ -11,15 +11,15 @@ def index():
   '''
 
   #Getting articles sources
-  headline_articles = get_headlines('cnn')
-  print(headline_articles)
+  headlines_articles = get_headlines('cnn')
+  print(headlines_articles)
   technology_articles = get_sources('technology')
   business_articles = get_sources('business')
   health_articles = get_sources('health')
   sports_articles = get_sources('sports')
   entertainment_articles = get_sources('entertainment')
   title = 'Home - Welcome to The Most Amazing News Highlight Website'
-  return render_template('index.html', title = title, cnn = headline_articles,technology = technology_articles,business = business_articles, health = health_articles, sports = sports_articles,entertainment = entertainment_articles)
+  return render_template('index.html', title = title, cnn = headlines_articles,technology = technology_articles,business = business_articles, health = health_articles, sports = sports_articles,entertainment = entertainment_articles)
 
 @main.route('/article/<id>')
 def article(id):
