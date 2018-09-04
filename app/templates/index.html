@@ -24,7 +24,7 @@
     {% block content %}
     <div class="container-fluid">  
             <div class="jumbotron">
-                    <h1 class="head">News Sasa</h1>
+                    <h1 class="head"><b>News Sasa</b></h1>
                 </div> 
             <hr>
             <div class="row nav">
@@ -76,11 +76,13 @@
                 {% for info_article in cnn %}
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href={{info_article.url}} target="blank_"></a>
                         <img class="card-img-top" src={{info_article.urlToImage}} alt="Card image cap">
                         <div class="card-body">
                             <h5 class="title"><b>{{info_article.title}}</b></h5>
                             <p class="description"><b>Description:</b>{{info_article.description}}</p>
+                            <a href={{info_article.url}} target="blank_">Read more ...</a>
+                            <br>
+                            <br>
                             <p class="date">{{info_article.publishedAt}}</p>
                             <div class="card-footer">
                                 <p class="author">{{info_article.author}}</p>
@@ -126,6 +128,7 @@
         }
         .author{
             font-family: 'Nunito', sans-serif;
+            color: rgb(156, 17, 17);
         }
         body{
         background-color: #f2f2f2;
