@@ -1,4 +1,5 @@
 # News-Highlights
+https://maendeleosasa.herokuapp.com/
 
 This project was generated on 2nd September 2018 using python3.6.
 
@@ -54,6 +55,7 @@ This application was created using:
 - Install flask in your virtual environment:
   `(virtual)$pip install flask`
 - Add Bootstrap: `(virtual)$ pip install flask-bootstrap`
+- Install Flask-Script: `(virtual)$ python3.6 -m pip install flask-script`
 - After installing all those,you can now run the app using: `(virtual)$./start.sh`
 
 ## Support and Contact Details
