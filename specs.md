@@ -1,15 +1,10 @@
 # Application Specifications
 
-|                                   |                                           |                                                | 
-|     Behaviour                     |             Input                         |             Output                             | 
-|-----------------------------------|-------------------------------------------|------------------------------------------------|
-|Button: View sources               |  Select preferred news article source     |         View all article within the general    | |                                   |                                           |           category and click to see articles   |
-|-----------------------------------|-------------------------------------------|------------------------------------------------|
-|Button: View Business sources      | Select preferred news article source      |        View all article within the general     | |                                   |                                           |           category and click to see articles   |
-|-----------------------------------|-------------------------------------------|------------------------------------------------|
-|Button: View Technology sources    |  Select preferred news article source     |         View all article within the general    | |                                   |                                           |         category and click to see articles      |
-|-----------------------------------|-------------------------------------------|------------------------------------------------ |
-|Button: View Sports sources        |  Select preferred news article source     |         View all article within the general     |   |                                   |                                         |          category and click to see articles  |
-|-----------------------------------|-------------------------------------------|------------------------------------------------|
-|Button: View Entertainment sources |  Select preferred news article source     |         View all article within the general    |  |                                   |                                          |          category and click to see articles   |
-|-----------------------------------|-------------------------------------------|------------------------------------------------|
+# Behaviour
+The user clicks on a button at the top of the page to view various news sources from different categories stated.
+
+# Input
+The user selects their preferred news article source from a given list of different news sources worldwide.
+
+# Output
+Articles within each news category are displayed and the user clicks the button after the description to read more about the specific article.
