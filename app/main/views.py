@@ -13,13 +13,16 @@ def index():
   #Getting articles sources
   headlines_articles = get_headlines('bbc-news')
   print(headlines_articles)
+  
+  general_articles = get_sources('general')
   technology_articles = get_sources('technology')
   business_articles = get_sources('business')
   health_articles = get_sources('health')
   sports_articles = get_sources('sports')
   entertainment_articles = get_sources('entertainment')
+  science_articles = get_sources('science')
   title = 'Home - Welcome to The Most Amazing News Highlight Website'
-  return render_template('index.html', title = title, bbc_news = headlines_articles,technology = technology_articles,business = business_articles, health = health_articles, sports = sports_articles,entertainment = entertainment_articles)
+  return render_template('index.html', title = title, bbc_news = headlines_articles,general = general_articles,technology = technology_articles,business = business_articles, health = health_articles, sports = sports_articles,entertainment = entertainment_articles,science = science_articles)
 
 @main.route('/article/<id>')
 def article(id):

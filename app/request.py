@@ -143,5 +143,3 @@ def process_articles(articles_list):
             articles_results.append(articles_object)
 
     return articles_results
-
-

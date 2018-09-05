@@ -13,8 +13,8 @@
     <!-- Content Body -->
     <div class="row">
       {% for info_article in info %}
-      <div class="col-sm-4">
-        <div class="thumbnail">
+      <div class="col-sm-4 columns">
+        <figure class="thumbnail" style="height:580px; width:460px !important">
           <img class="card-img-top" src={{info_article.urlToImage}} alt="Card image cap">
           <div class="card-body">
             <h5 class="title"><p class="title"><b>{{info_article.title}}</b></p></h5>
@@ -27,7 +27,7 @@
               <p class="author">{{info_article.author}}</p>
             </div>
           </div>
-        </div>
+        </figure>
         
       </div>
       {% endfor %}  
@@ -53,7 +53,10 @@
       color: rgb(156, 17, 17);
     }
     body{
-      background-color: #f2f2f2;
+      background-color: rgb(14, 11, 11);
+    }
+    .columns{
+      float: center !important;
     }
     .thumbnail {
       width: 465px !important;
@@ -62,10 +65,10 @@
       border: 0 !important;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       transition: all 0.3s ease 0s;
-      cursor: pointer;
+      cursor:pointer;
     }
     .thumbnail:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 14px 28px rgba(9, 146, 27, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
       transform: translateY(-7px);
     }
   </style>

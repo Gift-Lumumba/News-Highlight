@@ -28,6 +28,8 @@ This project was generated on 2nd September 2018 using python3.6.
 - Werkzeug==0.14.1
 - wrapt==1.10.11
 
+- Also make sure you add your API key and Secret key inside the start.sh    file to enable the application run.I didn't add mine for application's security purposes.
+
 ## How It Works
 The application user is able to:
 - See various news sources on the homepage and select the ones they prefer
